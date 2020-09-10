@@ -11,46 +11,57 @@ int main()
 {
 	int number = 1;
 
+	// don't try this at home!
+	/*
 	while (number > 0)
 	{
 		//cout << number++ << endl;
 		number++;
 	}
+	*/
 	
-	/*
 	// to get different random numbers every run
 	srand(time(0));
 
-	int secretNumber = rand() % 100 + 1;
-	int guess;
-	bool stillGuessing = true;
+	char playAgain = 'y';
 
-	while (stillGuessing)
+	// tolower makes it so I don't need to check against upper case Y
+	while (tolower(playAgain) == 'y')
 	{
-		cout << "Guess a number 1-100: " << endl;
-		cin >> guess;
+		cout << "How high of a number do you want to guess up to?" << endl;
+		int maxNumber;
+		cin >> maxNumber;
 
-		if (guess == secretNumber)
-		{
-			cout << "You guessed it!" << endl;
-			stillGuessing = false;
-		}
-		else if (guess < secretNumber)
-		{
-			cout << "You guessed too low!" << endl;
-		}
-		else if (guess > secretNumber)
-		{
-			cout << "You guessed too high!" << endl;
-		}
+		int secretNumber = rand() % maxNumber + 1;
+		int guess;
+		bool stillGuessing = true;
+		int numberOfGuesses = 0;
 
-		if (stillGuessing)
+		while (stillGuessing)
 		{
-			cout << "Guess a number 1-100: " << endl;
+			numberOfGuesses++;
+			cout << "Guess a number 1-" << maxNumber << ": " << endl;
 			cin >> guess;
+
+			if (guess == secretNumber)
+			{
+				cout << "You guessed it!" << endl;
+				cout << "It took you " << numberOfGuesses << " guesses!" << endl;
+				stillGuessing = false;
+			}
+			else if (guess < secretNumber)
+			{
+				cout << "You guessed too low!" << endl;
+			}
+			else if (guess > secretNumber)
+			{
+				cout << "You guessed too high!" << endl;
+			}
 		}
+
+		cout << "Do you want to play again? y/n" << endl;
+		cin >> playAgain;
 	}
 
-	*/
 	return 0;
 }
