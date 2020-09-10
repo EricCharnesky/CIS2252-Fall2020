@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chapter5-InputValidation", "Chapter5-InputValidation\Chapter5-InputValidation.vcxproj", "{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}.Debug|x64.ActiveCfg = Debug|x64
+		{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}.Debug|x64.Build.0 = Debug|x64
+		{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}.Debug|x86.ActiveCfg = Debug|Win32
+		{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}.Debug|x86.Build.0 = Debug|Win32
+		{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}.Release|x64.ActiveCfg = Release|x64
+		{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}.Release|x64.Build.0 = Release|x64
+		{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}.Release|x86.ActiveCfg = Release|Win32
+		{AEFBDDC5-E659-42E4-A1FE-0C614F99B606}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00FF0C18-4D8E-4DD5-A7A2-176F353F946A}
+	EndGlobalSection
+EndGlobal
