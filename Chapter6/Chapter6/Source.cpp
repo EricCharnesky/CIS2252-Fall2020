@@ -9,7 +9,10 @@ int askUserForANumber(string message);
 double calculateAverage(int first, int second, int third);
 bool isFirstLargerThanSecond(int first, int second);
 void squareTheValue(int& number);
-string createDateString(int day, int month, int year);
+string createDateString(int day, int month, int year, char format);
+string createDateString(string day, string month, string year, char format);
+void printWithNewLines(string message, bool extraNewLine);
+void printWithNewLines(string message);
 
 int main()
 {
@@ -113,10 +116,28 @@ string createDateString(int day, int month, int year, char format = 'U' )
 	{
 		return to_string(day) + "/" + to_string(month) + "/" + to_string(year);
 	}
-	else if ( format == 'I')
+	else if (format == 'I')
 	{
 		return to_string(year) + "-" + to_string(month) + "-" + to_string(day);
 	}
-	
-	
+}
+
+string createDateString(string day, string month, string year, char format = 'U')
+{
+	return createDateString(stoi(day), stoi(month), stoi(year), format);
+}
+
+// overloaded functions - same name, different signature
+void printWithNewLines(string message, bool extraNewLine)
+{
+	cout << message << endl;
+	if (extraNewLine)
+	{
+		cout << endl;
+	}
+}
+
+void printWithNewLines(string message)
+{
+	printWithNewLines(message, false);
 }
