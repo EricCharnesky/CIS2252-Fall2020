@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "..\Chapter7-Classes\Circle.h"
+#include "..\Chapter7-Classes\Car.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -56,6 +57,42 @@ namespace UnitTest1
 
 			// Assert
 			Assert::AreEqual(expectedArea, actualArea);
+		}
+
+		TEST_METHOD(TestMethodCarAddGas)
+		{
+			// AAA
+			// Arrange
+			Car car;
+			double expectedGasInTankInLiters = 10;
+			car.setGasTankCapacityInLiters(expectedGasInTankInLiters);
+
+			// act - call some code
+			car.addGas(expectedGasInTankInLiters);
+			double actualGasInTankInLiters = car.getGasInTankInLiters();
+
+			// Assert
+			Assert::AreEqual(expectedGasInTankInLiters, actualGasInTankInLiters);
+			
+		}
+
+		TEST_METHOD(TestMethodCarAddDrive)
+		{
+			// Arrange
+			Car car;
+			double expectedGasInTankInLiters = 9;
+			double kilometersPerLiter = 10;
+			car.setGasTankCapacityInLiters(expectedGasInTankInLiters);
+			car.addGas(10);
+			car.setKilometersPerLiter(kilometersPerLiter);
+
+			// act - call some code
+			car.drive(10);
+			double actualGasInTankInLiters = car.getGasInTankInLiters();
+
+			// Assert
+			Assert::AreEqual(expectedGasInTankInLiters, actualGasInTankInLiters);
+
 		}
 	};
 }
