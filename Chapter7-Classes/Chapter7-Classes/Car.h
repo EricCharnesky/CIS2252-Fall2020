@@ -50,8 +50,12 @@ public:
 	}
 	void addGas(double gasToAddInLiters)
 	{
-		
-		// todo - check for overlfow;
+		gasInTankInLiters += gasToAddInLiters;
+		if (gasInTankInLiters > gasTankCapacityInLiters)
+		{
+			gasInTankInLiters = gasTankCapacityInLiters;
+			// todo - some error for spilling gas!!!
+		}
 	}
 
 	void setKilometersPerLiter(double kilometersPerLiter)
@@ -65,7 +69,14 @@ public:
 
 	void drive(double kilometersToDrive)
 	{
+		double litersOfGasUsed = kilometersToDrive / kilometersPerLiter;
+		gasInTankInLiters -= litersOfGasUsed;
 
+		if (gasInTankInLiters < 0)
+		{
+			gasInTankInLiters = 0;
+			// TODO - some error here for running out of gas!
+		}
 	}
 
 private:

@@ -82,7 +82,7 @@ namespace UnitTest1
 			Car car;
 			double expectedGasInTankInLiters = 9;
 			double kilometersPerLiter = 10;
-			car.setGasTankCapacityInLiters(expectedGasInTankInLiters);
+			car.setGasTankCapacityInLiters(10);
 			car.addGas(10);
 			car.setKilometersPerLiter(kilometersPerLiter);
 
