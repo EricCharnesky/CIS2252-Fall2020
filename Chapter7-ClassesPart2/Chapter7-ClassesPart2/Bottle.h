@@ -3,6 +3,13 @@
 class Bottle
 {
 public:
+	// constructor - job is to set default values
+	Bottle()
+	{
+		capacityInMililiters = 0;
+		currentVolumeInMililiters = 0;
+	}
+
 	void setCapacityInMililiters(int capacityInMililiters)
 	{
 		if (capacityInMililiters < 0)
