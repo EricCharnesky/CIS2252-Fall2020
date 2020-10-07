@@ -43,5 +43,42 @@ namespace UnitTest1
 			// Assert
 			Assert::AreEqual(expectedVolume, actualVolume);
 		}
+
+		TEST_METHOD(TestMethodRandomRemoval)
+		{
+			// AAA - Arrange, Act, Assert
+
+			// Arrange
+			Bottle bottle(42);
+			int expectedCapacity = 355;
+			int expectedVolume = 279;
+
+			// Act
+			bottle.setCapacityInMililiters(expectedCapacity);
+			bottle.addMililitersOfSomething(expectedCapacity);
+			bottle.removeRandomAmount();
+			int actualVolume = bottle.getCurrentVolumeOfSomethingInMililiters();
+
+			// Assert
+			Assert::AreEqual(expectedVolume, actualVolume);
+		}
+
+		TEST_METHOD(TestMethodRandomRemovalIsLess)
+		{
+			// AAA - Arrange, Act, Assert
+
+			// Arrange
+			Bottle bottle;
+			int expectedCapacity = 355;
+
+			// Act
+			bottle.setCapacityInMililiters(expectedCapacity);
+			bottle.addMililitersOfSomething(expectedCapacity);
+			bottle.removeRandomAmount();
+			int actualVolume = bottle.getCurrentVolumeOfSomethingInMililiters();
+
+			// Assert
+			Assert::IsTrue(actualVolume < expectedCapacity);
+		}
 	};
 }

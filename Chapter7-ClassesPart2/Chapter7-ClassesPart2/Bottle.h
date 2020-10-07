@@ -1,13 +1,24 @@
 #pragma once
 
+#include <ctime>
+#include <cstdlib>
+
 class Bottle
 {
 public:
 	// constructor - job is to set default values
-	Bottle()
+
+	// default constuctor -  no arguments - calls the parameterized constructor
+	Bottle() : Bottle(time(0))
+	{
+
+	}
+
+	Bottle(int seed)
 	{
 		capacityInMililiters = 0;
 		currentVolumeInMililiters = 0;
+		srand(seed);
 	}
 
 	void setCapacityInMililiters(int capacityInMililiters)
@@ -59,6 +70,13 @@ public:
 		{
 			return true;
 		}
+	}
+
+	void removeRandomAmount()
+	{
+		// gives between 1 and 100
+		int mililitersToRemove = rand() % 100 + 1;
+		removeMililitersOfSOmething(mililitersToRemove);
 	}
 
 private:
