@@ -14,10 +14,10 @@ public:
 
 	}
 
-	Bottle(int seed)
+	Bottle(int seed) : currentVolumeInMililiters(0)
 	{
-		capacityInMililiters = 0;
-		currentVolumeInMililiters = 0;
+		setCapacityInMililiters(0);
+		// currentVolumeInMililiters = 0; - used the member initalization above
 		srand(seed);
 	}
 
