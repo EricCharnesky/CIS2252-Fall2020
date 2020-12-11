@@ -3,6 +3,7 @@
 #include <string>
 
 #include "Header.h"
+#include <vector>
 
 using namespace std;
 
@@ -11,6 +12,48 @@ int main()
 	Student students[10];
 	
 	int numberOfStudents = 0;
+
+
+	vector<Student> studentVector;
+
+	Student student1;
+	Student student2;
+
+	student1.id = 1;
+	student2.id = 2;
+
+	string name1 = "Eric1";
+	string name2 = "Eric2";
+
+	strcpy_s(student1.name, name1.c_str());
+	strcpy_s(student2.name, name2.c_str());
+
+	studentVector.push_back(student1);
+	studentVector.push_back(student2);
+
+	numberOfStudents = studentVector.size();
+
+	fstream binaryArrayData;
+	binaryArrayData.open("peoplevector.dat", ios::binary | ios::out);
+	binaryArrayData.write(reinterpret_cast<char*>(&numberOfStudents), sizeof(numberOfStudents));
+	binaryArrayData.write(reinterpret_cast<char*>(&studentVector[0]), sizeof(Student) * numberOfStudents);
+	binaryArrayData.close();
+
+	
+
+	fstream binaryArrayDataToRead;
+	binaryArrayDataToRead.open("peoplevector.dat", ios::binary | ios::in);
+	binaryArrayDataToRead.read(reinterpret_cast<char*>(&numberOfStudents), sizeof(numberOfStudents));
+	
+	vector<Student> studentVectorIn(numberOfStudents);
+	binaryArrayDataToRead.read(reinterpret_cast<char*>(&studentVectorIn[0]), sizeof(Student) * numberOfStudents);
+	binaryArrayDataToRead.close();
+
+	for (int index = 0; index < studentVectorIn.size(); index++)
+	{
+		cout << studentVectorIn.at(index).id << " : " << studentVectorIn.at(index).name << endl;
+	}
+
 	/*
 	string name;
 	cout << "Enter a name or QUIT to stop" << endl;
@@ -43,7 +86,7 @@ int main()
 		cout << students[index].id << " : " << students[index].name << endl;
 	}
 	*/
-
+	/*
 	int id;
 	cout << "Enter an ID to read:" << endl;
 	cin >> id;
@@ -65,7 +108,7 @@ int main()
 	binaryArrayData.seekp(id * sizeof(Student) + sizeof(int));
 	binaryArrayData.write(reinterpret_cast<char*>(&student), sizeof(Student));
 	binaryArrayData.close();
-
+	*/
 
 	return 0;
 }
