@@ -13,7 +13,7 @@ int main()
 	
 	int numberOfStudents = 0;
 
-
+	/*
 	vector<Student> studentVector;
 
 	Student student1;
@@ -53,8 +53,8 @@ int main()
 	{
 		cout << studentVectorIn.at(index).id << " : " << studentVectorIn.at(index).name << endl;
 	}
-
-	/*
+	
+	int numberOfPeople = 0;
 	string name;
 	cout << "Enter a name or QUIT to stop" << endl;
 	cin >> name;
@@ -72,9 +72,9 @@ int main()
 	binaryArrayData.write(reinterpret_cast<char*>(&numberOfPeople), sizeof(numberOfPeople));
 	binaryArrayData.write(reinterpret_cast<char*>(students), sizeof(students));
 	binaryArrayData.close();
-	*/
-
-	/*
+	
+	
+	
 	fstream binaryArrayDataToRead;
 	binaryArrayDataToRead.open("people.dat", ios::binary | ios::in);
 	binaryArrayDataToRead.read(reinterpret_cast<char*>(&numberOfStudents), sizeof(numberOfStudents));
@@ -86,7 +86,7 @@ int main()
 		cout << students[index].id << " : " << students[index].name << endl;
 	}
 	*/
-	/*
+	
 	int id;
 	cout << "Enter an ID to read:" << endl;
 	cin >> id;
@@ -104,11 +104,11 @@ int main()
 	cin >> name;
 	strcpy_s(student.name, name.c_str());
 	fstream binaryArrayData;
-	binaryArrayData.open("people.dat", ios::binary | ios::out);
-	binaryArrayData.seekp(id * sizeof(Student) + sizeof(int));
+	binaryArrayData.open("people.dat", ios::binary | ios::out | ios::in );
+	binaryArrayData.seekp(id * sizeof(Student) + sizeof(int), ios::beg);
 	binaryArrayData.write(reinterpret_cast<char*>(&student), sizeof(Student));
 	binaryArrayData.close();
-	*/
+	
 
 	return 0;
 }
